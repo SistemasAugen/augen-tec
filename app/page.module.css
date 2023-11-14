@@ -1,0 +1,40 @@
+.downloadButton {
+    color: #007960;
+    font-weight: 700;
+    font-size: 22px;
+    margin-top: 60px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.videoPlayer {
+    margin-bottom: 50px;
+}
+
+.stickyMenu {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.equipmentContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.horizontalLine {
+    border-top: 7px solid #04795f;
+    width: 25%;
+    margin-right: -110px;
+    margin-bottom: 50px;
+    margin-top: -39px;
+}
+
+.machineTitle {
+    margin-left: 5%;
+    margin-bottom: 60px;
+    color: #04795f;
+}
