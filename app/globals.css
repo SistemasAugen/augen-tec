@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow: hidden;
+}
+
+main {
+  position: fixed;
+  overflow-y: scroll;
+  height: 90%;
+  margin-top: 86px;
+  z-index: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
