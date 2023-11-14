@@ -1,0 +1,116 @@
+.image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.colorTitle {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column !important;
+  padding: 30px;
+  padding-top: 40px;
+}
+
+.titleCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* For desktop version (greater than 960px) */
+@media (min-width: 961px) {
+  .titleCenter {
+    display: flex;
+    justify-content: left !important;
+    align-items: left !important;
+  }
+
+  .textCenter {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column !important;
+    padding: 20px;
+    padding-top: 40px;
+  }
+
+  .innovationContainer {
+    width: 88%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .moldsContainer {
+    width: 88%;
+  }
+
+  .innovation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: pre-line;
+    margin-top: 35px;
+    margin-left: 100px;
+  }
+
+  .innovationTextContainer {
+    width: 110%;
+    /* margin-top: 70px; */
+    margin-left: 90px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+  }
+
+  .labOne {
+    width: 100%;
+    display: flex;
+    justify-content: left !important;
+    align-items: left !important;
+    margin-left: 250px;
+  }
+
+  .colorTitle {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 200;
+  width: 80%;
+  margin-bottom: 30px;
+}
+
+.textCenter {
+  margin-left: 50px;
+  /* 90px */
+  margin-right: 90px;
+}
+
+.text {
+  font-size: 17px;
+  margin-bottom: 50px;
+  font-weight: 300;
+  line-height: 25px;
+}
+
+.horizontalLine {
+  border-top: 7px solid #027960;
+  width: 85%;
+  margin-right: -110px;
+  margin-bottom: 50px;
+  margin-top: -39px;
+}
