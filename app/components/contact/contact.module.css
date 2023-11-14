@@ -1,0 +1,68 @@
+.container {
+    padding: 30px;
+    background-color: #007960;
+    color: #fff;
+}
+
+.containerDesktop {
+    height: 60%;
+}
+
+.titleContainerDesktop {
+    margin-top: 50px;
+}
+
+.titleDesktop {
+    margin-left: 50px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.titleContainer {
+    font-size: 26px;
+    font-weight: 200;
+    margin-bottom: 20px !important;
+    margin-left: 20px !important;
+    margin-top: 20px !important;
+
+}
+
+@media (min-width: 961px) {
+    .titleContainer {
+        margin-top: 95px !important;
+    }
+
+    .socialsIcons {
+        margin-top: 100px !important;
+    }
+
+    .containerIcons {
+        margin-top: 0px;
+    }
+
+    .containerI {
+        padding-top: 25px;
+    }
+}
+
+.textContainer {
+    margin-bottom: 20px !important;
+    font-size: 17px;
+    font-weight: 300;
+    margin-left: 20px !important;
+}
+
+.socialsIcons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 7px !important;
+    margin-bottom: 7px !important;
+}
+
+.icon {
+    margin-right: 15px;
+    font-size: 28px;
+}
