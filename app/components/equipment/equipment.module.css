@@ -1,0 +1,36 @@
+.container {
+    margin-bottom: 60px;
+}
+
+.image {
+    height: 190px;
+    width: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.borderColor {
+    width: 45px;
+}
+
+.containerRight {
+    padding: 0 35px 0 45px;
+}
+
+.containerLeft {
+    padding: 0 45px 0 25px;
+}
+
+.title {
+    display: flex;
+    font-size: 26px;
+    font-weight: 200;
+    width: 86%;
+    margin-bottom: 25px;
+}
+
+.text {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 25px;
+}
