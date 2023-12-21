@@ -34,6 +34,7 @@
 
     .socialsIcons {
         margin-top: 100px !important;
+        cursor: pointer;
     }
 
     .containerIcons {
