@@ -1,4 +1,4 @@
-import { Box, Grid, Hidden } from "@mui/material";
+import { Box, Grid, Hidden, useMediaQuery } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./equipment.module.css";
 import Image, { StaticImageData } from "next/image";
@@ -10,17 +10,20 @@ export const BorderPosition = {
   right: "right",
 };
 
+export interface ImageData {
+  width?: string;
+  height: string;
+  src: StaticImageData;
+  srcDesktop: StaticImageData;
+  alt: string
+}
 export interface EquipmentModel {
   id?: string;
-  imgData: {
-    src: StaticImageData;
-    alt: string;
-    height?: string;
-    width?: string;
-  };
+  imgData: ImageData;
   colorBorder: {
     position: string;
     color: string;
+    colorDesktop?: string;
   };
   title: string;
   text: string;
@@ -35,6 +38,7 @@ const Equipment = ({
 }: EquipmentModel) => {
   const imageRef = useRef(null);
   const textRef = useRef(null);
+  const isDesktop = useMediaQuery('(min-width: 961px)');
 
   useEffect(() => {
     const currentImageRef = imageRef.current;
@@ -90,12 +94,13 @@ const Equipment = ({
         <Image
           ref={imageRef}
           data-aos="fade-up"
-          src={imgData.src}
+          // src={imgData.src}
+          src={isDesktop ? imgData.srcDesktop : imgData.src}
           alt={imgData.alt}
           className={styles.image}
           style={{
-            height: imgData.height || "auto",
-            width: imgData.width || "auto",
+            height: imgData.height,
+            width: imgData.width,
           }}></Image>
         <div
           ref={textRef}
