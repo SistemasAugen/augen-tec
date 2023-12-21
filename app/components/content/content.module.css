@@ -24,6 +24,11 @@
 
 /* For desktop version (greater than 960px) */
 @media (min-width: 961px) {
+  .image {
+    width: 100%;
+    object-fit: cover;
+  }
+
   .titleCenter {
     display: flex;
     justify-content: left !important;
@@ -31,8 +36,8 @@
   }
 
   .textCenter {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 20px !important;
+    margin-right: 90px !important;
   }
 
   .textContainer {
@@ -43,13 +48,19 @@
   }
 
   .innovationContainer {
-    width: 88%;
-    padding-top: 40px;
+    width: 90%;
+    padding-top: 97px;
     padding-bottom: 40px;
+    padding-left: 70px;
   }
 
   .moldsContainer {
     width: 88%;
+  }
+
+  .moldsContainer {
+    margin-right: 85px;
+    margin-bottom: -40px;
   }
 
   .innovation {
@@ -75,7 +86,8 @@
     display: flex;
     justify-content: left !important;
     align-items: left !important;
-    margin-left: 250px;
+    margin-left: 35px;
+    margin-top: -50px
   }
 
   .colorTitle {
@@ -85,6 +97,13 @@
     font-weight: bold;
   }
 
+  .title {
+    font-size: 40px !important;
+    font-weight: 100 !important;
+    width: 80%;
+    margin-bottom: 30px;
+    margin-right: 70px;
+  }
 }
 
 .title {
@@ -96,7 +115,6 @@
 
 .textCenter {
   margin-left: 50px;
-  /* 90px */
   margin-right: 90px;
 }
 
@@ -107,10 +125,22 @@
   line-height: 25px;
 }
 
-.horizontalLine {
-  border-top: 7px solid #027960;
-  width: 85%;
-  margin-right: -110px;
+.horizontalLineLeft {
+  display: flex;
+  justify-content: flex-start;
+  border-top: 10px solid #027960;
+  width: 100%;
+  margin-left: -200px;
   margin-bottom: 50px;
   margin-top: -39px;
+}
+
+.horizontalLineRight {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 10px solid #027960;
+  width: 90%;
+  margin-bottom: 50px;
+  margin-top: -4px;
+  margin-left: 10%;
 }
