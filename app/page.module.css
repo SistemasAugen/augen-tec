@@ -13,6 +13,23 @@
     margin-bottom: 50px;
 }
 
+@media (min-width: 961px) {
+    .videoPlayer {
+        margin-bottom: 20px !important;
+        margin-top: 70px !important;
+        height: 100%;
+        width: 50%;
+    }
+
+    .fixedHeight {
+        height: 400px;
+        /* Adjust the height as needed */
+        display: flex;
+        align-items: stretch;
+        /* Ensures both child elements share the same height */
+    }
+}
+
 .stickyMenu {
     position: absolute;
     width: 100%;
@@ -26,15 +43,15 @@
 }
 
 .horizontalLine {
-    border-top: 7px solid #04795f;
-    width: 25%;
+    border-top: 12px solid #04795f;
+    width: 100%;
     margin-right: -110px;
     margin-bottom: 50px;
-    margin-top: -39px;
+    margin-top: 12px;
 }
 
 .machineTitle {
-    margin-left: 5%;
+    margin-left: 21%;
     margin-bottom: 60px;
     color: #04795f;
 }
