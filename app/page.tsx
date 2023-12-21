@@ -74,7 +74,7 @@ export default function Home() {
                 <h1 className={styles.machineTitle}>Maquinaria</h1>
               </Box>
             </Grid>
-            <Grid md={8}>
+            <Grid md={8} item>
               <div className={styles.horizontalLine} />
             </Grid>
           </Hidden>
