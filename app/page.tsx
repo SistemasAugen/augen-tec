@@ -12,7 +12,7 @@ const Raleway = localFont({
   src: "../app/public/fonts/Raleway-VariableFont_wght.ttf",
 });
 import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
-import { Box, Grid, Hidden } from "@mui/material";
+import { Box, Grid, Hidden, useMediaQuery } from "@mui/material";
 import { AppContextProvider } from "./page-context";
 import Footer from "./components/footer/footer";
 
@@ -25,6 +25,7 @@ const opts = {
   },
 };
 export default function Home() {
+  const isDesktop = useMediaQuery('(min-width: 961px)');
   const handleDownloadBrochureClick = () => {
     window.open("https://drive.google.com/file/d/1RAuDk30IpJ31xpRMts0wAa5XoSrpgWmg/view?pli=1", "_blank");
   };
@@ -66,23 +67,29 @@ export default function Home() {
             <YouTube className={styles.videoPlayer} videoId={videoId} opts={opts} />
           </Grid>
         </Hidden>
-        <Grid container className={styles.equipmentContainer}>
+        <Grid container className={styles.equipmentContainer} id={MenuOptions[2].key}>
           <Hidden mdDown> {/* desktop */}
-            <Grid md={12} item>
+            <Grid md={4} item>
               <Box>
-                <div className={styles.horizontalLine} />
                 <h1 className={styles.machineTitle}>Maquinaria</h1>
               </Box>
+            </Grid>
+            <Grid md={8}>
+              <div className={styles.horizontalLine} />
             </Grid>
           </Hidden>
           {esData.equipos.map((item) => {
             return (
-              <Grid item xs={12} md={12} key={item.id || item.title}>
+              <Grid item xs={12} md={3} key={item.id || item.title}>
                 <Equipment
                   id={item.id}
                   key={item.imageData.alt}
                   imgData={item.imageData}
-                  colorBorder={item.colorBorder}
+                  colorBorder={
+                    isDesktop
+                      ? { ...item.colorBorder, color: item.colorBorder.colorDesktop || item.colorBorder.color }
+                      : item.colorBorder
+                  }
                   title={item.title}
                   text={item.text}></Equipment>
               </Grid>
