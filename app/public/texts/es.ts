@@ -1,12 +1,17 @@
-import torre from "@/images/Torre.jpg";
-import Laboratorio from "@/images/Laboratorio.jpg";
+import Home_Torre_Desktop from "@/images/Home_Torre.png";
+import Laboratorio_Desktop from "@/images/Laboratorio_Desktop1.png";
 import torre_1 from "@/images/Torre_1.jpg";
 import Laboratorio_1 from "@/images/Laboratorio_1.jpg";
 import Adios_Moldes from "@/images/Adios_Moldes.jpg";
+import Adios_Moldes_Desktop from "@/images/Adios_moldes_desktop1.png";
 import Bloqueadora from "@/images/Bloqueadora.png";
+import Bloqueadora_Desktop from "@/images/Bloqueadora_Desktop.png";
 import Generador from "@/images/Generador.png";
+import Generador_Desktop from "@/images/Generador_Desktop.png";
 import Pulidora from "@/images/Pulidora.png";
+import Pulidora_Desktop from "@/images/Pulidora_Desktop.png";
 import Laser from "@/images/Laser.png";
+import Laser_Desktop from "@/images/Laser_Desktop.png";
 import { BorderPosition } from "@/app/components/equipment/equipment";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -19,6 +24,7 @@ export const esData = {
     {
       imageData: {
         src: torre_1,
+        srcDesktop: Home_Torre_Desktop,
         alt: "Torre augen labs",
       },
       title: "Innovación y desarrollo para la industria óptica",
@@ -28,6 +34,7 @@ export const esData = {
     {
       imageData: {
         src: Laboratorio_1,
+        srcDesktop: Laboratorio_Desktop,
         alt: "Laboratorios augen labs",
       },
       colorTitle: {
@@ -41,6 +48,7 @@ export const esData = {
     {
       imageData: {
         src: Adios_Moldes,
+        srcDesktop: Adios_Moldes_Desktop,
         alt: "Adios  moldes",
       },
       title: "Adiós a los moldes.",
@@ -51,11 +59,14 @@ export const esData = {
     {
       imageData: {
         src: Bloqueadora,
+        srcDesktop: Bloqueadora_Desktop,
         alt: "Bloqueadora rápida FF-SB",
-        height: '200px'
+        height: '300px',
+        width: '300px'
       },
       colorBorder: {
         color: "#cfcece",
+        colorDesktop: "white",
         position: BorderPosition.left
       },
       id: "Maquinaria",
@@ -65,11 +76,13 @@ export const esData = {
     {
       imageData: {
         src: Generador,
+        srcDesktop: Generador_Desktop,
         alt: "Generador de Forma Libre",
-        height: '350px'
+        height: '300px',
       },
       colorBorder: {
         color: "#007960",
+        colorDesktop: "white",
         position: BorderPosition.left
       },
       title: "Generador de Forma Libre FF-Víctor 4",
@@ -78,11 +91,13 @@ export const esData = {
     {
       imageData: {
         src: Pulidora,
+        srcDesktop: Pulidora_Desktop,
         alt: "Pulidora Rápida",
-        height: '350px'
+        height: '300px',
       },
       colorBorder: {
         color: "#c49907",
+        colorDesktop: "white",
         position: BorderPosition.left
       },
       title: "Pulidora Rápida FF-COMPACT",
@@ -91,11 +106,13 @@ export const esData = {
     {
       imageData: {
         src: Laser,
+        srcDesktop: Laser_Desktop,
         alt: "Grabado Láser",
-        height: '330px'
+        height: '300px',
       },
       colorBorder: {
         color: "#007960",
+        colorDesktop: "white",
         position: BorderPosition.left
       },
       title: "Grabado Láser LFL-2020",
