@@ -2,21 +2,23 @@ import { StaticImageData } from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./content.module.css";
-import { Box, Grid, Hidden } from "@mui/material";
+import { Box, Grid, Hidden, Typography } from "@mui/material";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { detectContentType } from "next/dist/server/image-optimizer";
-//
 import { esData } from "@/app/public/texts/es";
 import YouTube from "react-youtube";
 
+import { useMediaQuery } from "@mui/material";
+
+export interface ImageData {
+  src: StaticImageData;
+  srcDesktop: StaticImageData;
+  alt: string
+}
 
 export interface ContentProps {
   id?: string;
-  imgData: {
-    src: StaticImageData;
-    alt: string;
-  };
+  imgData: ImageData;
   title: string;
   text: string;
   colorTitle?: { color: string; text: string };
@@ -28,11 +30,12 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
   const imageRef = useRef(null);
   const textRef = useRef(null);
   const [headerIsSmall, setHeaderIsSmall] = useState(false);
+  const isDesktop = useMediaQuery('(min-width: 961px)');
 
   const videoId = "pS-J14hPrlI";
   const opts = {
     width: "100%",
-    height: "500px",
+    height: "650px",
     playerVars: {
       autoplay: false,
     },
@@ -93,14 +96,15 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
       <Grid
         item
         xs={12}
-        md={imgData.alt === "Torre augen labs" ? 12 : imgData.alt === "Laboratorios augen labs" ? 6 : 12}
+        md={isDesktop ? (imgData.alt === "Torre augen labs" ? 12 : imgData.alt === "Laboratorios augen labs" ? 6 : 12) : 12}
         ref={imageRef}
         data-aos="fade-up"
       >
         <Image
-          src={imgData.src}
+          src={isDesktop ? imgData.srcDesktop : imgData.src}
           alt={imgData.alt}
-          className={styles.image}>
+          className={styles.image}
+        >
         </Image>
       </Grid>
       <Hidden mdUp> {/* mobil */}
@@ -130,26 +134,24 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
             className={[styles.textContainer, styles.titleCenter].join(" ")}
             ref={textRef}
           >
-            <div className={styles.horizontalLine} />
-            <div className={styles.labOne}>
-              <span
-                className={styles.colorTitle}
-                style={{ color: colorTitle.color }}>
-                {colorTitle.text}
-              </span>
-            </div>
             <Box className={[styles.textContainer, styles.textCenter, styles.titleCenter].join(" ")}>
+              <div className={styles.labOne}>
+                <span
+                  className={styles.colorTitle}
+                  style={{ color: colorTitle.color }}>
+                  {colorTitle.text}
+                </span>
+              </div>
               <span className={[styles.title, styles.titleCenter].join(" ")}>{title}</span>
               <p className={[styles.text, styles.textCenter, styles.titleCenter].join(" ")}>{text}</p>
             </Box>
           </Grid>
         )}
-        {/* // */}
         {/* Adiós a los moldes section */}
         {title === "Adiós a los moldes." && (
           <Grid container>
             <Grid
-              md={title === "Adiós a los moldes." ? 6 : 6}
+              md={title === "Adiós a los moldes." ? 4 : 6}
               item
               className={[styles.textContainer, styles.titleCenter].join(" ")}
               ref={textRef}
@@ -167,13 +169,12 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
                 </div>
               </Box>
             </Grid>
-            <Grid md={6} item>
-              <Box>
-                <YouTube className={styles.videoPlayer} videoId={videoId} opts={opts} />
+            <Grid md={8} item>
+              <Box className={styles.videoPlayer}>
+                <YouTube videoId={videoId} opts={opts} />
               </Box>
             </Grid>
           </Grid>
-
         )}
         {/* innovacion y desarrollo */}
         {!colorTitle && id === 'AugenTec' && (
@@ -181,10 +182,11 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
             <Grid container>
               <Grid item xs={12} md={6}>
                 <div className={styles.innovationContainer}>
-                  <span className={[styles.title, styles.titleCenter, styles.innovation].join(" ")}>{title}</span>
+                  <Typography variant="h1" className={[styles.title, styles.titleCenter, styles.innovation].join(" ")}>{title}</Typography>
                 </div>
               </Grid>
               <Grid item md={6}>
+                <div className={styles.horizontalLineRight} />
                 <Box className={[styles.textContainer, styles.textCenter, styles.titleCenter].join(" ")}>
                   <div className={styles.innovationTextContainer}>
                     <p className={[styles.text, styles.textCenter, styles.titleCenter].join(" ")}>{text}</p>
@@ -194,8 +196,8 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
             </Grid>
           </Box>
         )}
-      </Hidden >
-    </Grid >
+      </Hidden>
+    </Grid>
   );
 };
 
