@@ -18,6 +18,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
 
 export const esData = {
   main: [
@@ -126,8 +127,18 @@ export const esData = {
     socials: [
       {
         icon: WhatsAppIcon,
+        url: "https://wa.me/6462361943",
+        text: "(+52) 646 236 1943"
+      },
+      {
+        icon: WhatsAppIcon,
         url: "https://wa.me/3310620319",
         text: "(+52) 33 1062 0319"
+      },
+      {
+        icon: EmailIcon,
+        url: "mailto:comercializacion@augenopticos.com",
+        text: "comercializacion@augenopticos.com"
       },
       {
         icon: FacebookIcon,
