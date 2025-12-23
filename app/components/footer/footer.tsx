@@ -145,11 +145,11 @@ export default function footer({ MenuOptions }: { MenuOptions: MenuOption[] }) {
             </div>
           </Grid>
 
-         <Grid item xs={12} className={styles.footerTextContainer}>
-          <div className={styles.textContainer}>
-            © {new Date().getFullYear()} AUGEN TEC
-          </div>
-        </Grid>
+          <Grid item xs={12} className={styles.footerTextContainer}>
+            <div className={styles.textContainer}>
+              © {new Date().getFullYear()}  AUGEN TEC
+            </div>
+          </Grid>
 
         </Grid>
       </Hidden>
