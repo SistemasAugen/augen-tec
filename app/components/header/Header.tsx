@@ -1,7 +1,7 @@
 import { Grid, Hidden } from "@mui/material";
 import Image from "next/image";
 import React, { useContext } from "react";
-import logoImg from "@/images/Logo.png";
+import logoImg from "@/images/AugenTec_2025.png";
 import MenuTwoToneIcon from "@mui/icons-material/MenuTwoTone";
 import styles from "./header.module.css";
 import { AppContext } from "@/app/page-context";

@@ -128,7 +128,7 @@
 .horizontalLineLeft {
   display: flex;
   justify-content: flex-start;
-  border-top: 10px solid #027960;
+  border-top: 10px solid #30403E;
   width: 100%;
   margin-left: -200px;
   margin-bottom: 50px;
@@ -138,9 +138,72 @@
 .horizontalLineRight {
   display: flex;
   justify-content: flex-end;
-  border-top: 10px solid #027960;
+  border-top: 10px solid #30403E;
   width: 90%;
   margin-bottom: 50px;
   margin-top: -4px;
   margin-left: 10%;
+}
+
+/* Keep Swiper constrained */
+.carouselWrap {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  height: 600px; /* ✅ lock to smallest image height */
+}
+
+/* Force Swiper root to have a real width & height */
+.carouselWrap :global(.swiper) {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 600px !important;
+  overflow: hidden;
+}
+
+/* Wrapper must inherit fixed height */
+.carouselWrap :global(.swiper-wrapper) {
+  width: 100% !important;
+  height: 600px !important;
+}
+
+/* Each slide fills the container */
+.carouselWrap :global(.swiper-slide) {
+  width: 100% !important;
+  height: 600px !important;
+  flex: 0 0 100% !important;
+  display: flex;
+}
+
+/* Image always fills the slide, cropping if needed */
+.carouselWrap :global(.swiper-slide img) {
+  width: 100% !important;
+  height: 600px !important;
+  max-width: 100% !important;
+  display: block;
+  object-fit: cover; /* ✅ crop larger images */
+}
+
+/* Swiper pagination dots */
+.carouselWrap :global(.swiper-pagination-bullet) {
+  background-color: #30403E;
+  opacity: 0.4;
+  width: 10px;
+  height: 10px;
+}
+
+/* Active dot */
+.carouselWrap :global(.swiper-pagination-bullet-active) {
+  background-color: #30403E;
+  opacity: 1;
+}
+
+@media (max-width: 960px) {
+  .carouselWrap,
+  .carouselWrap :global(.swiper),
+  .carouselWrap :global(.swiper-wrapper),
+  .carouselWrap :global(.swiper-slide),
+  .carouselWrap :global(.swiper-slide img) {
+    height: 360px !important;
+  }
 }

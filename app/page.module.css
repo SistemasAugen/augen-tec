@@ -1,5 +1,5 @@
 .downloadButton {
-    color: #007960;
+    color: #30403E;
     font-weight: 700;
     font-size: 22px;
     margin-top: 60px;
@@ -43,7 +43,7 @@
 }
 
 .horizontalLine {
-    border-top: 12px solid #04795f;
+    border-top: 12px solid #30403E;
     width: 100%;
     margin-right: -110px;
     margin-bottom: 50px;
@@ -53,5 +53,5 @@
 .machineTitle {
     margin-left: 21%;
     margin-bottom: 60px;
-    color: #04795f;
+    color: #30403E;
 }

@@ -1,5 +1,7 @@
+"use client";
+
 import { StaticImageData } from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./content.module.css";
 import { Box, Grid, Hidden, Typography } from "@mui/material";
@@ -7,14 +9,18 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { esData } from "@/app/public/texts/es";
 import YouTube from "react-youtube";
-
 import { useMediaQuery } from "@mui/material";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 
 export interface ImageData {
   src: StaticImageData;
   srcDesktop: StaticImageData;
-  alt: string
+  alt: string;
 }
+
+export interface CarouselImageData extends ImageData {}
 
 export interface ContentProps {
   id?: string;
@@ -24,21 +30,26 @@ export interface ContentProps {
   colorTitle?: { color: string; text: string };
   small?: boolean;
   sectionId: string;
+  carouselImages?: CarouselImageData[];
 }
 
-const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) => {
+const Content = ({ imgData, title, text, colorTitle, id, small, carouselImages }: ContentProps) => {
+  const WA_URL =
+  "https://wa.me/5214493864199?text=Hola%20quiero%20más%20información%20de%20Lab%20One";
   const imageRef = useRef(null);
   const textRef = useRef(null);
   const [headerIsSmall, setHeaderIsSmall] = useState(false);
-  const isDesktop = useMediaQuery('(min-width: 961px)');
+  const isDesktop = useMediaQuery("(min-width: 961px)");
+
+  // ✅ key fix: only render Swiper after client mount
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => setIsMounted(true), []);
 
   const videoId = "pS-J14hPrlI";
   const opts = {
     width: "100%",
     height: "650px",
-    playerVars: {
-      autoplay: false,
-    },
+    playerVars: { autoplay: false },
   };
 
   useEffect(() => {
@@ -49,15 +60,8 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
     AOS.init({
       duration: 900,
       easing: "ease",
-      startEvent: 'load',
+      startEvent: "load",
     });
-
-    // window.addEventListener('load', () => {
-    //   AOS.init({
-    //     duration: 900,
-    //     easing: "ease",
-    //   });
-    // })
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -69,9 +73,7 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
       });
     });
 
-    if (currentImageRef) {
-      observer.observe(currentImageRef);
-    }
+    if (currentImageRef) observer.observe(currentImageRef);
 
     if (currentTextRef) {
       observer.observe(currentTextRef);
@@ -79,45 +81,91 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
       window.addEventListener("scroll", onScroll, { passive: true });
     }
 
-    // Clean up the observer
     return () => {
-      if (currentImageRef) {
-        observer.unobserve(currentImageRef);
-      }
-      if (currentTextRef) {
-        observer.unobserve(currentTextRef);
-        window.removeEventListener("scroll", onScroll);
-      }
+      if (currentImageRef) observer.unobserve(currentImageRef);
+      if (currentTextRef) observer.unobserve(currentTextRef);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
+  const isAugenCarousel =
+    id === "AugenTec" && Array.isArray(carouselImages) && carouselImages.length > 0;
+
+  const safeCarouselImages = useMemo(() => {
+    if (!Array.isArray(carouselImages)) return [];
+    // filter bad entries so Next/Image never crashes rendering
+    return carouselImages
+      .slice(0, 3)
+      .filter((img) => !!img && (!!img.src || !!img.srcDesktop));
+  }, [carouselImages]);
+
+  const mdCols = isDesktop
+    ? imgData.alt === "Torre augen labs"
+      ? 12
+      : imgData.alt === "Laboratorios augen labs"
+      ? 6
+      : 12
+    : 12;
+
   return (
-    <Grid container id={id || title} >
-      <Grid
-        item
-        xs={12}
-        md={isDesktop ? (imgData.alt === "Torre augen labs" ? 12 : imgData.alt === "Laboratorios augen labs" ? 6 : 12) : 12}
-        ref={imageRef}
-        data-aos="fade-up"
-      >
-        <Image
-          src={isDesktop ? imgData.srcDesktop : imgData.src}
-          alt={imgData.alt}
-          className={styles.image}
-        >
-        </Image>
+    <Grid container id={id || title}>
+      <Grid item xs={12} md={mdCols} ref={imageRef} data-aos="fade-up">
+        {isAugenCarousel && isMounted ? (
+          <div className={styles.carouselWrap}>
+            <Swiper
+              modules={[Autoplay, Pagination]}
+              slidesPerView={1}
+              spaceBetween={0}
+              loop
+              autoplay={{ delay: 3500, disableOnInteraction: false }}
+              pagination={{ clickable: true }}
+              className={styles.carousel}
+            >
+
+            {safeCarouselImages.map((img, idx) => {
+              const safeSrc = isDesktop ? img.srcDesktop : img.src;
+              if (!safeSrc) return null;
+
+              const isClickable = idx === 1 || idx === 2; // 2nd & 3rd slide
+
+              return (
+                <SwiperSlide key={img.alt || `slide-${idx}`}>
+                  <div
+                    style={{ width: "100%", height: "100%", cursor: isClickable ? "pointer" : "default" }}
+                    onClick={() => {
+                      if (isClickable) {
+                        window.open(WA_URL, "_blank");
+                      }
+                    }}
+                  >
+                    <Image
+                      src={safeSrc}
+                      alt={img.alt || `slide-${idx}`}
+                      className={styles.image}
+                      priority
+                    />
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+
+            </Swiper>
+          </div>
+        ) : (
+          <Image
+            src={isDesktop ? imgData.srcDesktop : imgData.src}
+            alt={imgData.alt}
+            className={styles.image}
+            priority={id === "AugenTec"} // optional
+          />
+        )}
       </Grid>
-      <Hidden mdUp> {/* mobil */}
-        <Grid
-          xs={12}
-          item
-          className={styles.textContainer}
-          ref={textRef}
-        >
+
+      <Hidden mdUp>
+        {/* mobil */}
+        <Grid xs={12} item className={styles.textContainer} ref={textRef}>
           {colorTitle && (
-            <span
-              className={styles.colorTitle}
-              style={{ color: colorTitle.color }}>
+            <span className={styles.colorTitle} style={{ color: colorTitle.color }}>
               {colorTitle.text}
             </span>
           )}
@@ -125,20 +173,14 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
           <p className={styles.text}>{text}</p>
         </Grid>
       </Hidden>
-      <Hidden mdDown> {/* desktop */}
+
+      <Hidden mdDown>
+        {/* desktop */}
         {colorTitle && (
-          <Grid
-            sm={12}
-            md={colorTitle.text === "LabONE" ? 6 : 6}
-            item
-            className={[styles.textContainer, styles.titleCenter].join(" ")}
-            ref={textRef}
-          >
+          <Grid sm={12} md={6} item className={[styles.textContainer, styles.titleCenter].join(" ")} ref={textRef}>
             <Box className={[styles.textContainer, styles.textCenter, styles.titleCenter].join(" ")}>
               <div className={styles.labOne}>
-                <span
-                  className={styles.colorTitle}
-                  style={{ color: colorTitle.color }}>
+                <span className={styles.colorTitle} style={{ color: colorTitle.color }}>
                   {colorTitle.text}
                 </span>
               </div>
@@ -147,15 +189,10 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
             </Box>
           </Grid>
         )}
-        {/* Adiós a los moldes section */}
+
         {title === "Adiós a los moldes." && (
           <Grid container>
-            <Grid
-              md={title === "Adiós a los moldes." ? 4 : 6}
-              item
-              className={[styles.textContainer, styles.titleCenter].join(" ")}
-              ref={textRef}
-            >
+            <Grid md={4} item className={[styles.textContainer, styles.titleCenter].join(" ")} ref={textRef}>
               <div className={styles.moldsContainer}>
                 <span className={[styles.title, styles.titleCenter, styles.innovation].join(" ")}>
                   {esData.main[2].title}
@@ -163,9 +200,7 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
               </div>
               <Box className={[styles.textContainer, styles.textCenter, styles.titleCenter].join(" ")}>
                 <div className={styles.innovationTextContainer}>
-                  <p className={[styles.text, styles.textCenter, styles.titleCenter].join(" ")}>
-                    {esData.main[2].text}
-                  </p>
+                  <p className={[styles.text, styles.textCenter, styles.titleCenter].join(" ")}>{esData.main[2].text}</p>
                 </div>
               </Box>
             </Grid>
@@ -176,17 +211,18 @@ const Content = ({ imgData, title, text, colorTitle, id, small }: ContentProps) 
             </Grid>
           </Grid>
         )}
-        {/* innovacion y desarrollo */}
-        {!colorTitle && id === 'AugenTec' && (
+
+        {!colorTitle && id === "AugenTec" && (
           <Box>
             <Grid container>
               <Grid item xs={12} md={6}>
                 <div className={styles.innovationContainer}>
-                  <Typography variant="h1" className={[styles.title, styles.titleCenter, styles.innovation].join(" ")}>{title}</Typography>
+                  <Typography variant="h1" className={[styles.title, styles.titleCenter, styles.innovation].join(" ")}>
+                    {title}
+                  </Typography>
                 </div>
               </Grid>
               <Grid item md={6}>
-                <div className={styles.horizontalLineRight} />
                 <Box className={[styles.textContainer, styles.textCenter, styles.titleCenter].join(" ")}>
                   <div className={styles.innovationTextContainer}>
                     <p className={[styles.text, styles.textCenter, styles.titleCenter].join(" ")}>{text}</p>

@@ -9,7 +9,7 @@
 }
 
 .imagesContainer {
-  border-top: 5px solid #007960;
+  border-top: 5px solid #30403E;
   width: 155px;
   height: 200px;
   display: flex;
@@ -74,6 +74,7 @@
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 3px;
+  color: #30403E;
 }
 
 .footerTextContainer {
@@ -84,5 +85,5 @@
 .textContainer {
   padding-top: 10px;
   font-size: 13px;
-  border-top: 2px solid #007960;
+  border-top: 2px solid #30403E;
 }

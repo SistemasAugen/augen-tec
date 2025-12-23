@@ -2,23 +2,28 @@ import Home_Torre_Desktop from "@/images/Home_Torre.png";
 import Laboratorio_Desktop from "@/images/Laboratorio_Desktop1.png";
 import torre_1 from "@/images/Torre_1.jpg";
 import Laboratorio_1 from "@/images/Laboratorio_1.jpg";
-import Adios_Moldes from "@/images/Adios_Moldes.jpg";
-import Adios_Moldes_Desktop from "@/images/Adios_moldes_desktop1.png";
-import Bloqueadora from "@/images/Bloqueadora.png";
-import Bloqueadora_Desktop from "@/images/Bloqueadora_Desktop.png";
-import Generador from "@/images/Generador.png";
-import Generador_Desktop from "@/images/Generador_Desktop.png";
-import Pulidora from "@/images/Pulidora.png";
-import Pulidora_Desktop from "@/images/Pulidora_Desktop.png";
-import Laser from "@/images/Laser.png";
-import Laser_Desktop from "@/images/Laser_Desktop.png";
+import Adios_Moldes from "@/images/V2_IMG_GENERADOR_CLOSEUP.png";
+import Adios_Moldes_Desktop from "@/images/V2_IMG_GENERADOR_CLOSEUP.png";
+import Bloqueadora from "@/images/S_Bloqueadora_V2.png";
+import Bloqueadora_Desktop from "@/images/S_Bloqueadora_V2.png";
+import Generador from "@/images/S2_180825_Generador_Espectra_RenderV1.png";
+import Generador_Desktop from "@/images/S2_180825_Generador_Espectra_RenderV1.png";
+import Pulidora from "@/images/S_Pulidora_V3.png";
+import Pulidora_Desktop from "@/images/S_Pulidora_V3.png";
+import Laser from "@/images/S_Laser_V3.png";
+import Laser_Desktop from "@/images/S_Laser_V3.png";
 import { BorderPosition } from "@/app/components/equipment/equipment";
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import EmailIcon from '@mui/icons-material/Email';
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
+
+import Home_Torre from "@/images/home/Home_Torre.png";
+import LabOne_1 from "@/images/home/LabOne_1.png";
+import Spectra_1 from "@/images/home/SPECTRA_1.png";
+
 
 export const esData = {
   main: [
@@ -28,6 +33,25 @@ export const esData = {
         srcDesktop: Home_Torre_Desktop,
         alt: "Torre augen labs",
       },
+
+      carouselImages: [
+        {
+          src: Home_Torre,
+          srcDesktop: Home_Torre,
+          alt: "Home Torre",
+        },
+        {
+          src: LabOne_1,
+          srcDesktop: LabOne_1,
+          alt: "Lab One",
+        },
+        {
+          src: Spectra_1,
+          srcDesktop: Spectra_1,
+          alt: "Spectra",
+        },
+      ],
+
       title: "Innovación y desarrollo para la industria óptica",
       id: "AugenTec",
       text: "Somos parte de un grupo de compañías dedicadas a ofrecer soluciones a toda la cadena de necesidades de la industria óptica. Desde la investigación y el diseño de nuevos materiales, hasta nuestra red de laboratorios, ofrecemos a la industria maquinaria, insumos y materiales de la más alta calidad",
@@ -39,7 +63,7 @@ export const esData = {
         alt: "Laboratorios augen labs",
       },
       colorTitle: {
-        color: "#007960",
+        color: "#30403E",
         text: "LabONE",
       },
       id: "Sistema",
@@ -62,13 +86,13 @@ export const esData = {
         src: Bloqueadora,
         srcDesktop: Bloqueadora_Desktop,
         alt: "Bloqueadora rápida FF-SB",
-        height: '300px',
-        width: '300px'
+        height: "300px",
+        width: "300px",
       },
       colorBorder: {
         color: "#cfcece",
         colorDesktop: "white",
-        position: BorderPosition.left
+        position: BorderPosition.left,
       },
       id: "Maquinaria",
       title: "Bloqueadora Rápida FF-SB",
@@ -79,27 +103,27 @@ export const esData = {
         src: Generador,
         srcDesktop: Generador_Desktop,
         alt: "Generador de Forma Libre",
-        height: '300px',
+        height: "300px",
       },
       colorBorder: {
         color: "#007960",
         colorDesktop: "white",
-        position: BorderPosition.left
+        position: BorderPosition.left,
       },
-      title: "Generador de Forma Libre FF-Víctor 4",
-      text: "Su sistema de pivote evita la vibración típica de los generadores de Forma Libre. Se calibra en fábrica y produce superficies ópticas de alta precisión aún en diseños progresivos. Demanda un mínimo mantenimiento cada 5,000 lentes, por reemplazo de herramienta de corte y, además, su tecnología es amigable con el medio ambiente.",
+      title: "Generador de Forma Libre SPECTRA",
+      text: "Su sistema de pivote evita la vibración típica de los generadores de Forma Libre. Se calibra en fábrica y produce superficies ópticas de alta precisión aún en diseños progresivos. Demanda un mínimo mantenimiento cada 5,000 lentes, por reemplazo de herramienta de corte y, además, su tecnología es amigable con el medio environment.",
     },
     {
       imageData: {
         src: Pulidora,
         srcDesktop: Pulidora_Desktop,
         alt: "Pulidora Rápida",
-        height: '300px',
+        height: "300px",
       },
       colorBorder: {
         color: "#c49907",
         colorDesktop: "white",
-        position: BorderPosition.left
+        position: BorderPosition.left,
       },
       title: "Pulidora Rápida FF-COMPACT",
       text: "Una pulidora silenciosa, de dos minutos por ciclo. Con un pulido brillante y profundo, respeta fielmente el diseño y ofrece graduaciones con gran precisión. Con costos mínimos de insumos, es capaz de procesar hasta 100 superficies por herramienta. Sólo bastan 3 de ellas para todo el rango de graduaciones. Pantalla táctil.",
@@ -109,12 +133,12 @@ export const esData = {
         src: Laser,
         srcDesktop: Laser_Desktop,
         alt: "Grabado Láser",
-        height: '300px',
+        height: "300px",
       },
       colorBorder: {
         color: "#007960",
         colorDesktop: "white",
-        position: BorderPosition.left
+        position: BorderPosition.left,
       },
       title: "Grabado Láser LFL-2020",
       text: "Graba en fracción de segundos. Es fácil de usar. Graba todo tipo de termoplásticos, metal, vidrio, madera y materiales orgánicos. La pantalla táctil de 17” permite un control máximo de programación y comandos. Cuenta con cámara de video para posicionamiento de monturas para grabados de logotipos y marcas registradas",
@@ -128,38 +152,38 @@ export const esData = {
       {
         icon: WhatsAppIcon,
         url: "https://wa.me/6462361943",
-        text: "(+52) 646 236 1943"
+        text: "(+52) 646 236 1943",
       },
       {
         icon: WhatsAppIcon,
         url: "https://wa.me/3310620319",
-        text: "(+52) 33 1062 0319"
+        text: "(+52) 33 1062 0319",
       },
       {
         icon: EmailIcon,
         url: "mailto:comercializacion@augenopticos.com",
-        text: "comercializacion@augenopticos.com"
+        text: "comercializacion@augenopticos.com",
       },
-      {
-        icon: FacebookIcon,
-        url: "https://www.facebook.com/Augen.Tec/",
-        text: "Augen.Tec"
-      },
-      {
-        icon: InstagramIcon,
-        url: "https://www.instagram.com/augen_tec/ ",
-        text: "Augen_tec"
-      },
-      {
-        icon: YouTubeIcon,
-        url: "https://www.youtube.com/@AugenTec",
-        text: "@Augentec"
-      },
-      {
-        icon: LinkedInIcon,
-        url: "https://www.linkedin.com/company/augen-tec/",
-        text: "Company/Augen-Tec"
-      }
-    ]
-  }
+      // {
+      //   icon: FacebookIcon,
+      //   url: "https://www.facebook.com/Augen.Tec/",
+      //   text: "Augen.Tec",
+      // },
+      // {
+      //   icon: InstagramIcon,
+      //   url: "https://www.instagram.com/augen_tec/ ",
+      //   text: "Augen_tec",
+      // },
+      // {
+      //   icon: YouTubeIcon,
+      //   url: "https://www.youtube.com/@AugenTec",
+      //   text: "@Augentec",
+      // },
+      // {
+      //   icon: LinkedInIcon,
+      //   url: "https://www.linkedin.com/company/augen-tec/",
+      //   text: "Company/Augen-Tec",
+      // },
+    ],
+  },
 };
