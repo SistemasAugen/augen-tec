@@ -2,7 +2,7 @@ import Home_Torre_Desktop from "@/images/Home_Torre.png";
 import Laboratorio_Desktop from "@/images/Laboratorio_Desktop1.png";
 import torre_1 from "@/images/Torre_1.jpg";
 import Laboratorio_1 from "@/images/Laboratorio_1.jpg";
-import Adios_Moldes from "@/images/V2_IMG_GENERADOR_CLOSEUP.png";
+import Adios_Moldes from "@/images/IMG_SPECTRA.png";
 import Adios_Moldes_Desktop from "@/images/V2_IMG_GENERADOR_CLOSEUP.png";
 import Bloqueadora from "@/images/S_Bloqueadora_V2.png";
 import Bloqueadora_Desktop from "@/images/S_Bloqueadora_V2.png";
@@ -24,6 +24,9 @@ import Home_Torre from "@/images/home/Home_Torre.png";
 import LabOne_1 from "@/images/home/LabOne_1.png";
 import Spectra_1 from "@/images/home/SPECTRA_1.png";
 
+import Home_TorreMobile from "@/images/home/MOVIL_Banner_Principal.png";
+import LabOne_1Mobile from "@/images/home/MOVIL_Banners_LabOne.png";
+import Spectra_1Mobile from "@/images/home/MOVIL_Banners_Generador_Espectra.png";
 
 export const esData = {
   main: [
@@ -36,17 +39,17 @@ export const esData = {
 
       carouselImages: [
         {
-          src: Home_Torre,
+          src: Home_TorreMobile,
           srcDesktop: Home_Torre,
           alt: "Home Torre",
         },
         {
-          src: LabOne_1,
+          src: LabOne_1Mobile,
           srcDesktop: LabOne_1,
           alt: "Lab One",
         },
         {
-          src: Spectra_1,
+          src: Spectra_1Mobile,
           srcDesktop: Spectra_1,
           alt: "Spectra",
         },
@@ -90,7 +93,7 @@ export const esData = {
         width: "300px",
       },
       colorBorder: {
-        color: "#cfcece",
+        color: "#30403E",
         colorDesktop: "white",
         position: BorderPosition.left,
       },
@@ -106,7 +109,7 @@ export const esData = {
         height: "300px",
       },
       colorBorder: {
-        color: "#007960",
+        color: "#30403E",
         colorDesktop: "white",
         position: BorderPosition.left,
       },
@@ -121,7 +124,7 @@ export const esData = {
         height: "300px",
       },
       colorBorder: {
-        color: "#c49907",
+        color: "#30403E",
         colorDesktop: "white",
         position: BorderPosition.left,
       },
@@ -136,7 +139,7 @@ export const esData = {
         height: "300px",
       },
       colorBorder: {
-        color: "#007960",
+        color: "#30403E",
         colorDesktop: "white",
         position: BorderPosition.left,
       },

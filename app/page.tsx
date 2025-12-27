@@ -47,7 +47,7 @@ export default function Home() {
       <div className={styles.stickyMenu}>
         <Header></Header>
       </div>
-      <main className={Raleway.className}>
+      <main className={`${Raleway.className} ${styles.main}`}>
         <Menu MenuOptions={MenuOptions} />
 
         <Grid container className={styles.equipmentContainer}>

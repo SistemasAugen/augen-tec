@@ -4,6 +4,15 @@
     color: #fff;
 }
 
+
+@media (max-width: 960px) {
+  .container {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
 .containerDesktop {
     height: auto;
 }
@@ -61,6 +70,12 @@
     font-weight: 600;
     margin-top: 7px !important;
     margin-bottom: 7px !important;
+}
+
+@media (max-width: 960px) {
+  .socialsIcons {
+    font-size: 13px;
+  }
 }
 
 .icon {

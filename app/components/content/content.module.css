@@ -204,6 +204,10 @@
   .carouselWrap :global(.swiper-wrapper),
   .carouselWrap :global(.swiper-slide),
   .carouselWrap :global(.swiper-slide img) {
-    height: 360px !important;
+    height: auto !important;
+  }
+
+  .image {
+    height: auto;
   }
 }

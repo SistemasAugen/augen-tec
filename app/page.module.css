@@ -55,3 +55,11 @@
     margin-bottom: 60px;
     color: #30403E;
 }
+
+@media (max-width: 960px) {
+  .main {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
