@@ -29,10 +29,13 @@ const opts = {
 export default function Home() {
   const isDesktop = useMediaQuery("(min-width: 961px)");
   const handleDownloadBrochureClick = () => {
-    window.open(
-      "https://drive.google.com/file/d/1RAuDk30IpJ31xpRMts0wAa5XoSrpgWmg/view?pli=1",
-      "_blank"
-    );
+    const a = document.createElement("a");
+    a.href = "/Brochure_Maquinas_2026.pdf";
+    a.download = "Brochure_Maquinas_2026.pdf";
+    a.rel = "noopener noreferrer";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   };
 
   const MenuOptions: MenuOption[] = [

@@ -1,13 +1,32 @@
 .downloadButton {
-    color: #30403E;
-    font-weight: 700;
-    font-size: 22px;
-    margin-top: 60px;
-    margin-bottom: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  color: #30403E;
+  font-weight: 700;
+  font-size: 22px;
+  margin-top: 60px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.2s ease, transform 0.15s ease;
 }
+
+.downloadButton:hover {
+  opacity: 0.75;
+  transform: translateY(-1px);
+}
+
+.downloadButton:active {
+  transform: translateY(0);
+}
+
+.downloadButton:focus-visible {
+  outline: 2px solid #30403E;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
 
 .videoPlayer {
     margin-bottom: 50px;
